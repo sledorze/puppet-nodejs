@@ -44,7 +44,7 @@ define nodejs::install (
 
   $node_download_command = $node_version ? {
     'latest' => "wget http://nodejs.org/dist/node-${node_version}.tar.gz",
-    default  => "wget http://nodejs.org/dist/${node_version}/node-${node_version}.tar.gz"
+    default  => "wget http://nodejs.org/dist/node-${node_version}.tar.gz"
   }
 
   $node_unpack_command = $node_version ? {
