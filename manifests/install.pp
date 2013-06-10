@@ -71,8 +71,8 @@ define nodejs::install (
   }
 
   exec { "node-install-${node_version}":
-    command => 'python configure && make install',
-    path    => '/usr/bin:/bin:/usr/sbin:/sbin',
+    command => './configure && make install',
+    path    => "/usr/bin:/bin:/usr/sbin:/sbin:${::nodejs::params::install_dir}/node-${node_version}",
     cwd     => "${::nodejs::params::install_dir}/node-${node_version}",
     user    => 'root',
     unless  => "test -f ${::nodejs::params::install_dir}/node-${node_version}/node",
